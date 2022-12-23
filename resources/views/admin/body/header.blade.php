@@ -126,15 +126,45 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                <img src=""
+                 class="user-image img-circle elevation-2" alt="" title="">
+            <span class="d-none d-md-inline"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <!-- User image -->
+            <li class="user-header bg-success m-2 p-2">
+                <img
+                    src=""
+                    class="img-circle elevation-2"
+                    alt=""
+                    title=""
+                >
+                <p>
+                     <br>
+                    
+                    <small>Member since {{ date('d m Y') }}</small>
+                </p>
+            </li>
+            <!-- Menu Footer-->
+            <li class="user-footer">
+                <a href=""
+                   class="btn btn-default btn-flat">Profile</a>
+                   <a href="" class="btn btn-default btn-flat">Password</a>
+                <a href="{{ route('admin.logout') }}"
+                   onclick="event.preventDefault();document.getElementById('logoutform').submit();"
+                   class="btn btn-default btn-flat float-right">Logout</a>
+                <form action="{{ route('admin.logout') }}" id="logoutform" method="get">@csrf</form>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
+            <i class="fas fa-expand-arrows-alt"></i>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
+    </li>
+    
+</ul>
+</nav>
   </nav>
