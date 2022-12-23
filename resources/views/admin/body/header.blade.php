@@ -138,8 +138,8 @@
                 <img
                     src=""
                     class="img-circle elevation-2"
-                    alt=""
-                    title=""
+                    alt="{{ Auth::user()->name }}"
+                    title="{{ Auth::user()->mail }}"
                 >
                 <p>
                      <br>
