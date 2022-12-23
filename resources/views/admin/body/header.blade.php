@@ -149,7 +149,7 @@
             </li>
             <!-- Menu Footer-->
             <li class="user-footer">
-                <a href=""
+                <a href="{{ route('admin.profile') }}"
                    class="btn btn-default btn-flat">Profile</a>
                    <a href="" class="btn btn-default btn-flat">Password</a>
                 <a href="{{ route('admin.logout') }}"
