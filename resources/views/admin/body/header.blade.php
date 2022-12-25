@@ -151,7 +151,7 @@
             <li class="user-footer">
                 <a href="{{ route('admin.profile') }}"
                    class="btn btn-default btn-flat">Profile</a>
-                   <a href="" class="btn btn-default btn-flat">Password</a>
+                   <a href="{{ route('admin.change.password') }}" class="btn btn-default btn-flat">Password</a>
                 <a href="{{ route('admin.logout') }}"
                    onclick="event.preventDefault();document.getElementById('logoutform').submit();"
                    class="btn btn-default btn-flat float-right">Logout</a>

@@ -46,7 +46,7 @@ class AdminController extends Controller
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone; 
-
+        $data->address = $request->address;
         if ($request->file('photo')) {
             $file = $request->file('photo');
             @unlink(public_path('upload/admin_images/'.$data->photo));
@@ -66,5 +66,28 @@ class AdminController extends Controller
 
     } // End Method 
 
+    public function AdminChangePassword(){
+        return view('admin.admin_change_password');
+    } // End Method 
+ 
+    public function AdminUpdatePassword(Request $request){
 
+        // Validation 
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed', 
+        ]);
+
+        // Match The Old Password 
+        if (!Hash::check($request->old_password, auth::user()->password)) {
+            return back()->with('error', "Old Password Doesn't Match!!");
+        }
+        // Update the new password 
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with('status', "Password Change Successfully");
+
+    } // End Method 
 }
